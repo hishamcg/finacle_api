@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rspec", "~> 2.6"
+  spec.add_development_dependency "sinatra", "~> 1.4.4"
+
   spec.add_dependency "faraday", "~> 0.8.8"
   spec.add_dependency "faraday_middleware", "~> 0.9.0"
   spec.add_dependency "activemodel", "~> 3.2.1"
