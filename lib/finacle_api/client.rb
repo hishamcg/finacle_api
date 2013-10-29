@@ -16,8 +16,8 @@ module FinacleApi
       end
     end
 
-    def security
-      FinacleApi::Common::Security.new(:token => {:password_token => {:user_id => user_id, :password => password}})
+    def security_hash
+      {:token => {:password_token => {:user_id => user_id, :password => password}}}
     end
 
     def connection_options
@@ -26,10 +26,6 @@ module FinacleApi
         :headers => {
           :accept => 'application/xml',
           :user_agent => user_agent,
-        },
-        :request => {
-          :open_timeout => 5,
-          :timeout => 10,
         },
       }
     end
@@ -54,8 +50,7 @@ module FinacleApi
 
     # Perform an HTTP POST request
     def post(path, params={})
-      signature_params = params.values.any?{|value| value.respond_to?(:to_io)} ? {} : params
-      request(:post, path, params, signature_params)
+      request(:post, path, params)
     end
 
     def user_agent
@@ -70,7 +65,7 @@ module FinacleApi
       @connection ||= Faraday.new(endpoint, connection_options)
     end
 
-    def request(method, path, params={}, signature_params=params)
+    def request(method, path, params={})
       response = connection.send(method.to_sym, path, params) do |request|
         request.headers[:accept] = '*/*'
       end

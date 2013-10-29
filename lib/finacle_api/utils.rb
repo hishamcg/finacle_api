@@ -1,15 +1,12 @@
 module FinacleApi
   module Utils
 
-    def objects_from_response(klass, request_method, path, obj)
+    def response_from(klass, request_method, path, options)
+      p "klass #{klass}, #{request_method}, #{path}, #{options}"
       response = send(request_method.to_sym, path, options)[:body]
-      objects_from_array(klass, response)
-    end
-
-    def objects_from_array(klass, array)
-      array.map do |element|
-        klass.new(element)
-      end
+      p "response body => #{response.inspect}"
+      # objects_from_array(klass, response)
+      response
     end
 
   end

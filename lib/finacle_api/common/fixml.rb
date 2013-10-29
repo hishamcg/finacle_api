@@ -21,8 +21,8 @@ module FinacleApi
         {:header => nil, :body => nil}
       end
 
-      def to_fxml
-        to_xml(:camelize => true)
+      def fixml
+        to_xml(:root => "FIXML", :camelize => true)
       end
     end
   end

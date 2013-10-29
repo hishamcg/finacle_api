@@ -6,21 +6,18 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-    gem 'finacle_api'
+    gem 'finacle_api', :git => 'git://github.com/StrataLabs/finacle_api.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install finacle_api
-
 ## Usage
 
-    client = Finacle::Client.new(
-      :user_id => ''
-      :password => ''
+    client = FinacleApi::Client.new(
+      :user_id => '',
+      :password => '',
+      :endpoint => ''
     )
 
     client.configuration({
