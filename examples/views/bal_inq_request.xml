@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml BalInq.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<Header>
+  <RequestHeader>
+    <MessageKey>
+      <RequestUUID>Req_1376630081191</RequestUUID>
+      <ServiceRequestId>BalInq</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+      <LanguageId></LanguageId>
+    </MessageKey>
+
+    <RequestMessageInfo>
+      <BankId></BankId>
+      <TimeZone></TimeZone>
+      <EntityId></EntityId>
+      <EntityType></EntityType>
+      <ArmCorrelationId></ArmCorrelationId>
+      <MessageDateTime>2013-07-16T10:44:41.191</MessageDateTime>
+    </RequestMessageInfo>
+
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId></UserId>
+          <Password></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken></FICertToken>
+      <RealUserLoginSessionId></RealUserLoginSessionId>
+      <RealUser></RealUser>
+      <RealUserPwd></RealUserPwd>
+      <SSOTransferToken></SSOTransferToken>
+    </Security>
+
+  </RequestHeader>
+</Header>
+
+
+<Body>
+  <BalInqRequest>
+    <BalInqRq>
+      <AcctId>
+        <AcctId>1007710010000223</AcctId>
+      </AcctId>
+    </BalInqRq>
+  </BalInqRequest>
+</Body>
+
+</FIXML>
+

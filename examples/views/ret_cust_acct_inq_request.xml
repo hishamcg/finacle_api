@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml RetCustAcctInq.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header>
+  <RequestHeader>
+    
+    <MessageKey>
+      <RequestUUID>Req_1380798782932</RequestUUID>
+      <ServiceRequestId>RetCustAcctInq</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+      <LanguageId></LanguageId>
+    </MessageKey>
+
+    <RequestMessageInfo>
+      <BankId></BankId>
+      <TimeZone></TimeZone>
+      <EntityId></EntityId>
+      <EntityType></EntityType>
+      <ArmCorrelationId></ArmCorrelationId>
+      <MessageDateTime>2013-09-03T16:43:02.932</MessageDateTime>
+    </RequestMessageInfo>
+
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId></UserId>
+          <Password></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken></FICertToken>
+      <RealUserLoginSessionId></RealUserLoginSessionId>
+      <RealUser></RealUser>
+      <RealUserPwd></RealUserPwd>
+      <SSOTransferToken></SSOTransferToken>
+    </Security>
+    
+  </RequestHeader>
+</Header>
+
+
+<Body>
+  <RetCustAcctInqRequest>
+    <CustAcctInqRq>
+      <CustId>1010001</CustId>
+      <CustType>Retail</CustType>
+    </CustAcctInqRq>
+  </RetCustAcctInqRequest>
+</Body>
+
+</FIXML>
