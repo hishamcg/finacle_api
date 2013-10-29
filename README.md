@@ -14,17 +14,4 @@ And then execute:
 
 ## Usage
 
-    client = FinacleApi::Client.new(
-      :user_id => '',
-      :password => '',
-      :endpoint => ''
-    )
-
-    client.configuration({
-      :endpoints => {
-        :bal_inq => '/BalInq',
-        :ret_cust_acct_inq => '/RetCustAcctInq',
-      }
-    })
-
-    client.balance_inquiry(account_id)
+Refer examples/sample_client.rb
