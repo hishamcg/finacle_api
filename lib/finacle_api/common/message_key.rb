@@ -1,3 +1,4 @@
+require 'finacle_api/core_ext/inflections'
 require 'finacle_api/common/serializable_object'
 
 module FinacleApi
@@ -10,10 +11,10 @@ module FinacleApi
     #   <LanguageId></LanguageId>
     # </MessageKey>
     class MessageKey < SerializableObject
-      attr_accessor :request_UUID, :service_request_id, :service_request_version, :channel_id, :language_id
+      attr_accessor :request_uuid, :service_request_id, :service_request_version, :channel_id, :language_id
 
       def attributes
-        {:request_UUID => "", :service_request_id => "", 
+        {:request_uuid => "", :service_request_id => "", 
           :service_request_version => "", :channel_id => "", :language_id => ""}
       end
     end

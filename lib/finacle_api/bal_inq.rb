@@ -7,6 +7,8 @@ module FinacleApi
   module BalInq
     class Request
 
+      API_PATH = '/FISERVLET/fihttp'
+
       def payload(options={})
 
         security_hash = options.delete(:security_hash)
@@ -16,13 +18,13 @@ module FinacleApi
           :bank_id => "",
           :time_zone => "",
           :entity_id => "",
-          :entity_type => "", 
+          :entity_type => "",
           :arm_correlation_id => "",
           :message_date_time => "#{Time.now.strftime('%Y-%m-%dT%H:%M:%S.%L')}"
         )
 
         message_key = FinacleApi::Common::MessageKey.new(
-          :request_UUID => "SR_#{rand(100000000000)}", 
+          :request_uuid => "SR_#{rand(100000000000)}", 
           :service_request_id => "BalInq", 
           :service_request_version => "10.2", 
           :channel_id => "COR", 
@@ -51,6 +53,7 @@ module FinacleApi
           :header => header, 
           :body => {:bal_inq_request => bal_inq_request}
         )
+
       end
 
     end

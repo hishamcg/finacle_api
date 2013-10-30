@@ -16,10 +16,6 @@ module FinacleApi
       end
     end
 
-    def security_hash
-      {:token => {:password_token => {:user_id => user_id, :password => password}}}
-    end
-
     def connection_options
       @connection_options ||= {
         :builder => middleware,
@@ -27,6 +23,7 @@ module FinacleApi
           :accept => 'application/xml',
           :user_agent => user_agent,
         },
+        :ssl => {:verify => false}
       }
     end
 
@@ -57,6 +54,10 @@ module FinacleApi
       @user_agent ||= "Finacle Ruby Gem #{FinacleApi::VERSION}"
     end
 
+    def security_hash
+      {:token => {:password_token => {:user_id => user_id, :password => password}}}
+    end
+
     private
 
     # Returns a Faraday::Connection object
@@ -68,6 +69,7 @@ module FinacleApi
     def request(method, path, params={})
       response = connection.send(method.to_sym, path, params) do |request|
         request.headers[:accept] = '*/*'
+        request.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       end
       response.env
     rescue Faraday::Error::ClientError
