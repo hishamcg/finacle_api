@@ -9,6 +9,7 @@ module FinacleApi
     def balance_inquiry(account_id, opts={})
       security_hash = send(:security_hash)
       payload = FinacleApi::BalInq::Request.new.payload(:security_hash => security_hash, :account_id => account_id)
+      p "payload => [#{payload.fixml}]"
       response_from(FinacleApi::Common::FIXML, :post, '/BalInq', payload.fixml)
     end
 

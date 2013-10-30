@@ -18,14 +18,14 @@ module FinacleApi
           :entity_id => "",
           :entity_type => "", 
           :arm_correlation_id => "",
-          :message_date_time => ""
+          :message_date_time => "#{Time.now.strftime('%Y-%m-%dT%H:%M:%S.%L')}"
         )
 
         message_key = FinacleApi::Common::MessageKey.new(
-          :request_UUID => "", 
-          :service_request_id => "", 
-          :service_request_version => "", 
-          :channel_id => "", 
+          :request_UUID => "SR_#{rand(100000000000)}", 
+          :service_request_id => "BalInq", 
+          :service_request_version => "10.2", 
+          :channel_id => "COR", 
           :language_id => ""
         )
 
