@@ -41,7 +41,7 @@ module FinacleApi
           )
         )
 
-        header = FinacleApi::Common::RequestHeader.new(
+        request_header = FinacleApi::Common::RequestHeader.new(
           :security => security_header, 
           :message_key => message_key, 
           :request_message_info => request_message_info
@@ -50,7 +50,7 @@ module FinacleApi
         bal_inq_request = FinacleApi::BalInq::BalInqRequest.new(account_id)
 
         FinacleApi::Common::FIXML.new(
-          :header => header, 
+          :header => {:request_header => request_header}, 
           :body => {:bal_inq_request => bal_inq_request}
         )
 

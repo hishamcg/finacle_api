@@ -35,7 +35,7 @@ module FinacleApi
         }) do 
 
           @header.to_xml(:builder => builder, :camelize => true, :root => 'header', :skip_instruct => true)
-          @body.to_xml(:builder => builder, :root => 'body', :camelize => true, :skip_instruct => true)
+          @body.to_xml(:builder => builder, :camelize => true, :root => 'body', :skip_instruct => true)
 
         end
       end
