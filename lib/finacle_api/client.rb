@@ -73,7 +73,7 @@ module FinacleApi
       end
       response.env
     rescue Faraday::Error::ClientError => ce
-      raise FinacleApi::Exception::ClientException(ce)
+      raise FinacleApi::Exception::ClientException.new(ce.message)
     end
 
   end

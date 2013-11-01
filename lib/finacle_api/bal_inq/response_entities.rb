@@ -1,1 +1,1 @@
-require 'finacle_api/bal_inq/request/bal_inq_response'
+require 'finacle_api/bal_inq/response/bal_inq_response'
