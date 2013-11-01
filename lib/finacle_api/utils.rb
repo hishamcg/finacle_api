@@ -3,7 +3,6 @@ module FinacleApi
 
     def response_from(request_method, path, options)
       response = send(request_method.to_sym, path, options)[:body]
-      response
     end
 
     def convert_hash_keys(value)

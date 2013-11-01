@@ -47,7 +47,7 @@ module FinacleApi
           :request_message_info => request_message_info
         )
 
-        bal_inq_request = FinacleApi::BalInq::BalInqRequest.new(account_id)
+        bal_inq_request = FinacleApi::BalInq::RequestEntity::BalInqRequest.new(account_id)
 
         @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header}, 

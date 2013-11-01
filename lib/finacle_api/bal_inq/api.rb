@@ -1,7 +1,7 @@
 require 'finacle_api/utils'
 require 'finacle_api/common'
 require 'finacle_api/bal_inq/request'
-require 'finacle_api/bal_inq/response'
+require 'finacle_api/bal_inq/response/bal_inq_response'
 
 module FinacleApi
   module BalInq
@@ -14,9 +14,9 @@ module FinacleApi
           :account_id => account_id
         )
         p "payload => [#{req.payload}]"
-        r = response_from(:post, FinacleApi::BalInq::Request::API_PATH, req.payload)["FIXML"]["Body"]
-        convert_hash_keys(r)
-        # FinacleApi::BalInq::Response.new(body_hash)
+        response_body = response_from(:post, FinacleApi::BalInq::Request::API_PATH, req.payload)["FIXML"]["Body"]
+        body_hash = convert_hash_keys(response_body)
+        FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(body_hash.delete(:bal_inq_response))
       end
     end
   end
