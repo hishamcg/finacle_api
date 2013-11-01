@@ -1,0 +1,1 @@
+require "finacle_api/exception/client_exception"

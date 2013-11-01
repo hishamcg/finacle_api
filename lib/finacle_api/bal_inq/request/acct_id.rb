@@ -1,16 +1,12 @@
-require 'active_model'
+require 'finacle_api/common/serializable_object'
 
 module FinacleApi
   module BalInq
-    class AcctId
-      include ActiveModel::Serializers::Xml
+    class AcctId < SerializableObject
+      attr_accessor :acct_id
 
       def initialize(account_id)
         @acct_id = account_id
-      end
-
-      def acct_id
-        @acct_id
       end
 
       def attributes

@@ -1,0 +1,1 @@
+require 'finacle_api/bal_inq/request/bal_inq_response'

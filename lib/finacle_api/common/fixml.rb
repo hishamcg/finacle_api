@@ -24,7 +24,7 @@ module FinacleApi
       end
 
 
-      def fixml(xsd_name='None')
+      def to_fixml(xsd_name='None')
         builder = ::Builder::XmlMarkup.new
         builder.instruct!
 

@@ -1,15 +1,15 @@
 require 'finacle_api/common'
-require 'finacle_api/bal_inq/entities/bal_inq_request'
-require 'finacle_api/bal_inq/entities/acct_id'
-require 'finacle_api/bal_inq/entities/bal_inq_rq'
+require 'finacle_api/bal_inq/request_entities'
+
 
 module FinacleApi
   module BalInq
     class Request
 
       API_PATH = '/FISERVLET/fihttp'
+      attr_accessor :fixml
 
-      def payload(options={})
+      def initialize(options={})
 
         security_hash = options.delete(:security_hash)
         account_id = options.delete(:account_id)
@@ -49,11 +49,18 @@ module FinacleApi
 
         bal_inq_request = FinacleApi::BalInq::BalInqRequest.new(account_id)
 
-        FinacleApi::Common::FIXML.new(
+        @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header}, 
           :body => {:bal_inq_request => bal_inq_request}
         )
 
+      end
+
+      def payload
+        @fixml.to_fixml('BalInq')
+      end
+
+      def to_response
       end
 
     end

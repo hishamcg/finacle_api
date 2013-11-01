@@ -1,14 +1,14 @@
 require 'faraday'
 require 'faraday_middleware'
 require "finacle_api/common"
-require 'finacle_api/base'
-require "finacle_api/error"
-require "finacle_api/config"
+require 'finacle_api/callable'
+require "finacle_api/exception"
+
 
 module FinacleApi
   class Client
-    include FinacleApi::Base
-    attr_accessor :user_id, :password, :endpoint, :config
+    include FinacleApi::Callable
+    attr_accessor :user_id, :password, :endpoint
 
     def initialize(options={})
       options.each do |key, value|
@@ -72,8 +72,8 @@ module FinacleApi
         request.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       end
       response.env
-    rescue Faraday::Error::ClientError
-      raise FinacleApi::Error
+    rescue Faraday::Error::ClientError => ce
+      raise FinacleApi::Exception::ClientException(ce)
     end
 
   end
