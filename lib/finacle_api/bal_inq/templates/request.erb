@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml BalInq.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<Header>
+  <RequestHeader>
+    <MessageKey>
+      <RequestUUID><%= @message_key.request_uuid %></RequestUUID>
+      <ServiceRequestId><%= @message_key.service_request_id %></ServiceRequestId>
+      <ServiceRequestVersion><%= @message_key.service_request_version %></ServiceRequestVersion>
+      <ChannelId><%= @message_key.channel_id %></ChannelId>
+      <LanguageId><%= @message_key.language_id %></LanguageId>
+    </MessageKey>
+
+    <RequestMessageInfo>
+      <BankId><%= @request_message_info.bank_id %></BankId>
+      <TimeZone><%= @request_message_info.time_zone %></TimeZone>
+      <EntityId><%= @request_message_info.entity_id %></EntityId>
+      <EntityType><%= @request_message_info.entity_type %></EntityType>
+      <ArmCorrelationId><%= @request_message_info.arm_correlation_id %></ArmCorrelationId>
+      <MessageDateTime><%= @request_message_info.message_date_time %></MessageDateTime>
+    </RequestMessageInfo>
+
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId><%= @security_header.token.password_token.user_id %></UserId>
+          <Password><%= @security_header.token.password_token.password %></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken><%= @security_header.FI_cert_token %></FICertToken>
+      <RealUserLoginSessionId><%= @security_header.real_user_login_session_id %></RealUserLoginSessionId>
+      <RealUser><%= @security_header.real_user %></RealUser>
+      <RealUserPwd><%= @security_header.real_user_pwd %></RealUserPwd>
+      <SSOTransferToken><%= @security_header.SSO_transfer_token %></SSOTransferToken>
+    </Security>
+
+  </RequestHeader>
+</Header>
+
+
+<Body>
+  <BalInqRequest>
+    <BalInqRq>
+      <AcctId>
+        <AcctId><%= @account_id %></AcctId>
+      </AcctId>
+    </BalInqRq>
+  </BalInqRequest>
+</Body>
+
+</FIXML>
+
