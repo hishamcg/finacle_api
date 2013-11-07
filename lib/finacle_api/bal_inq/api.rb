@@ -15,8 +15,20 @@ module FinacleApi
         )
         response_body = response_from(:post, FinacleApi::BalInq::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         body_hash = convert_hash_keys(response_body)
-        # FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(body_hash.delete(:bal_inq_response))
+        bal_inq_response_object(body_hash)
       end
+
+      def bal_inq_response_object(hash)
+        p "response body hash ~> [#{hash.inspect}]"
+        if hash.has_key?(:error)
+          error_hash = hash.delete(:error)
+          exception_hash = error_hash[:fi_business_exception]
+          FinacleApi::Common::FIBusinessException.new(exception_hash)
+        else
+          FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(hash.delete(:bal_inq_response))
+        end
+      end
+
     end
   end
 end

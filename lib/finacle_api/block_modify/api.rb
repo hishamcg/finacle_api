@@ -28,7 +28,18 @@ module FinacleApi
         )
         response_body = response_from(:post, FinacleApi::BlockModify::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         body_hash = convert_hash_keys(response_body)
-        FinacleApi::BlockModify::ResponseEntity::BlockModifyResponse.new(body_hash.delete(:block_modify_response))
+        block_modify_response_object(body_hash)
+      end
+
+      def block_modify_response_object(hash)
+        p "response body hash ~> [#{hash.inspect}]"
+        if hash.has_key?(:error)
+          error_hash = hash.delete(:error)
+          exception_hash = error_hash[:fi_business_exception]
+          FinacleApi::Common::FIBusinessException.new(exception_hash)
+        else
+          FinacleApi::BlockModify::ResponseEntity::BlockModifyResponse.new(hash.delete(:block_modify_response))
+        end
       end
     end
   end
