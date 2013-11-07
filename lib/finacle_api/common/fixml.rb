@@ -19,11 +19,6 @@ module FinacleApi
         @body = options.delete(:body)
       end
 
-      def attributes
-        {:header => nil, :body => nil}
-      end
-
-
       def to_fixml(xsd_name='None')
         builder = ::Builder::XmlMarkup.new
         builder.instruct!

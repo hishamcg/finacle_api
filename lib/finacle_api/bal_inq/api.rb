@@ -13,10 +13,9 @@ module FinacleApi
           :security_hash => send(:security_hash), 
           :account_id => account_id
         )
-        p "payload => [#{req.payload}]"
-        response_body = response_from(:post, FinacleApi::BalInq::Request::API_PATH, req.payload)["FIXML"]["Body"]
+        response_body = response_from(:post, FinacleApi::BalInq::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         body_hash = convert_hash_keys(response_body)
-        FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(body_hash.delete(:bal_inq_response))
+        # FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(body_hash.delete(:bal_inq_response))
       end
     end
   end

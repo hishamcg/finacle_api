@@ -12,11 +12,6 @@ module FinacleApi
     # </MessageKey>
     class MessageKey < SerializableObject
       attr_accessor :request_uuid, :service_request_id, :service_request_version, :channel_id, :language_id
-
-      def attributes
-        {:request_uuid => "", :service_request_id => "", 
-          :service_request_version => "", :channel_id => "", :language_id => ""}
-      end
     end
   end
 end

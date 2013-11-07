@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml blockModify.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header>
+  <RequestHeader>
+    <MessageKey>
+      <RequestUUID>Req_1383126873059</RequestUUID>
+      <ServiceRequestId>blockModify</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+      <LanguageId></LanguageId>
+    </MessageKey>
+    <RequestMessageInfo>
+      <BankId>01</BankId>
+      <TimeZone></TimeZone>
+      <EntityId></EntityId>
+      <EntityType></EntityType>
+      <ArmCorrelationId></ArmCorrelationId>
+      <MessageDateTime>2013-09-30T15:24:33.059</MessageDateTime>
+    </RequestMessageInfo>
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId></UserId>
+          <Password></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken></FICertToken>
+      <RealUserLoginSessionId></RealUserLoginSessionId>
+      <RealUser></RealUser>
+      <RealUserPwd></RealUserPwd>
+      <SSOTransferToken></SSOTransferToken>
+    </Security>
+  </RequestHeader>
+</Header>
+
+<Body>
+  <blockModifyRequest>
+    <BlockModifyInputVO>
+      <acid>ARJSB2</acid>
+      <blockAmount>
+        <amountValue>10</amountValue>
+        <currencyCode>INR</currencyCode>
+      </blockAmount>
+      <blockid>TEST</blockid>
+      <branchId>0001</branchId>
+      <modifyIndicator>P</modifyIndicator>
+      <reasonCode>001</reasonCode>
+      <valueDate>2013-10-01T00:00:00.000</valueDate>
+    </BlockModifyInputVO>
+  </blockModifyRequest>
+</Body>
+
+
+</FIXML>

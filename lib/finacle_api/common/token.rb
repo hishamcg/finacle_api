@@ -16,9 +16,6 @@ module FinacleApi
         @password_token = FinacleApi::Common::PasswordToken.new(options.delete(:password_token))
       end
 
-      def attributes
-        {:password_token => nil}
-      end
     end
   end
 end

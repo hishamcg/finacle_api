@@ -20,7 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rspec", "~> 2.6"
+  spec.add_development_dependency "simplecov", "~> 0.7.1"
   spec.add_development_dependency "sinatra", "~> 1.4.4"
+  spec.add_development_dependency "webmock", "~> 1.15.2"
 
   spec.add_dependency "faraday", "~> 0.8.8"
   spec.add_dependency "faraday_middleware", "~> 0.9.0"

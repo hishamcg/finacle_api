@@ -25,10 +25,6 @@ module FinacleApi
         super(options)
       end
 
-      def attributes
-        {:token => nil, :FI_cert_token => nil, :real_user_login_session_id => nil, 
-          :real_user => nil, :real_user_pwd => nil, :SSO_transfer_token => nil}
-      end
     end
   end
 end

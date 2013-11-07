@@ -1,10 +1,10 @@
 require 'erb'
 require 'finacle_api/common'
-require 'finacle_api/bal_inq/request/bal_inq_request'
+require 'finacle_api/block_modify/request/block_modify_request'
 
 
 module FinacleApi
-  module BalInq
+  module BlockModify
     class Request
 
       API_PATH = '/FISERVLET/fihttp'
@@ -13,7 +13,6 @@ module FinacleApi
       def initialize(options={})
 
         security_hash = options.delete(:security_hash)
-        @account_id = options.delete(:account_id)
 
         @request_message_info = FinacleApi::Common::RequestMessageInfo.new(
           :bank_id => "",
@@ -26,7 +25,7 @@ module FinacleApi
 
         @message_key = FinacleApi::Common::MessageKey.new(
           :request_uuid => "SR_#{rand(100000000000)}", 
-          :service_request_id => "BalInq", 
+          :service_request_id => "blockModify", 
           :service_request_version => "10.2", 
           :channel_id => "COR", 
           :language_id => ""
@@ -48,11 +47,11 @@ module FinacleApi
           :request_message_info => @request_message_info
         )
 
-        @bal_inq_request = FinacleApi::BalInq::RequestEntity::BalInqRequest.new(@account_id)
+        @block_modify_request = FinacleApi::BlockModify::RequestEntity::BlockModifyRequest.new(options)
 
         @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header}, 
-          :body => {:bal_inq_request => @bal_inq_request}
+          :body => {:block_modify_request => @block_modify_request}
         )
 
       end
@@ -64,10 +63,10 @@ module FinacleApi
       private 
 
       def template
-        File.read("#{Dir.pwd}/lib/finacle_api/bal_inq/templates/request.erb")
+        File.read("#{Dir.pwd}/lib/finacle_api/block_modify/templates/request.erb")
       end
 
-      def render
+      def render()
         ERB.new(template).result(binding)
       end
 
