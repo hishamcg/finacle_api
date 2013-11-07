@@ -17,7 +17,7 @@ module FinacleApi
               :block_amount => {
                 :amount_value => amount,
                 :currency_code => options.delete(:currency_code) || 'INR'
-              }
+              },
               :block_id => options.delete(:block_id) || "",
               :branch_id => branch_id,
               :modify_indicator => 'P',

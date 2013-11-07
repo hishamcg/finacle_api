@@ -11,7 +11,7 @@ module FinacleApi
       attr_accessor :fixml
 
       def initialize(options={})
-
+        options ||= {}
         security_hash = options.delete(:security_hash)
 
         @request_message_info = FinacleApi::Common::RequestMessageInfo.new(
@@ -47,7 +47,7 @@ module FinacleApi
           :request_message_info => @request_message_info
         )
 
-        @block_modify_request = FinacleApi::BlockModify::RequestEntity::BlockModifyRequest.new(options)
+        @block_modify_request = FinacleApi::BlockModify::RequestEntity::BlockModifyRequest.new(options.delete(:block_modify_request))
 
         @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header}, 

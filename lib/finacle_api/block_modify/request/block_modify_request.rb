@@ -7,7 +7,7 @@ module FinacleApi
       class BlockModifyRequest < SerializableObject
         attr_accessor :block_modify_input_vo
 
-        def initialize(account_id)
+        def initialize(options={})
           @block_modify_input_vo = BlockModifyInputVO.new(options.delete(:block_modify_input_vo))
         end
 
