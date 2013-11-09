@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday", "~> 0.8.8"
   spec.add_dependency "faraday_middleware", "~> 0.9.0"
   spec.add_dependency "activemodel", "~> 3.2.1"
+  spec.add_dependency "activerecord", "~> 3.2.1"
   spec.add_dependency "multi_xml", "~> 0.2"
   spec.add_development_dependency "rake"
 end

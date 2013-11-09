@@ -4,6 +4,7 @@ class SerializableObject
   include ActiveModel::Serializers::Xml
 
   def initialize(options={})
+    options ||={}
     options.each do |key, value|
       send(:"#{key}=", value) if respond_to?(:"#{key}=")
     end

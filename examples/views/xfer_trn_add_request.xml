@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml XferTrnAdd.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header>
+  <RequestHeader>
+    <MessageKey>
+      <RequestUUID>Req_1383655152987</RequestUUID>
+      <ServiceRequestId>XferTrnAdd</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+      <LanguageId></LanguageId>
+    </MessageKey>
+
+    <RequestMessageInfo>
+      <BankId></BankId>
+      <TimeZone></TimeZone>
+      <EntityId></EntityId>
+      <EntityType></EntityType>
+      <ArmCorrelationId></ArmCorrelationId>
+      <MessageDateTime>2013-10-05T18:09:12.987</MessageDateTime>
+    </RequestMessageInfo>
+
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId></UserId>
+          <Password></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken></FICertToken>
+      <RealUserLoginSessionId></RealUserLoginSessionId>
+      <RealUser></RealUser>
+      <RealUserPwd></RealUserPwd>
+      <SSOTransferToken></SSOTransferToken>
+    </Security>
+  </RequestHeader>
+</Header>
+
+
+<Body>
+
+<XferTrnAddRequest>
+  <XferTrnAddRq>
+    <XferTrnHdr>
+      <TrnType>T</TrnType>
+      <TrnSubType>CI</TrnSubType>
+    </XferTrnHdr>
+
+    <XferTrnDetail>
+
+      <PartTrnRec>
+        <AcctId>
+          <AcctId>TFSB02</AcctId>
+        </AcctId>
+        <PmtInst>
+          <PmtInstDt>2014-02-14T00:00:00.000</PmtInstDt>
+          <PmtInstAlpha>!</PmtInstAlpha>
+          <PmtInstNum>8</PmtInstNum>
+          <PmtInstType>CHQ</PmtInstType>
+        </PmtInst>
+        <CreditDebitFlg>D</CreditDebitFlg>
+        <TrnAmt>
+          <amountValue>10</amountValue>
+          <currencyCode>INR</currencyCode>
+        </TrnAmt>
+        <TrnParticulars>CASHDROP</TrnParticulars>
+        <ValueDt>2014-02-14T00:00:00.000</ValueDt>
+      </PartTrnRec>
+
+      <PartTrnRec>
+        <AcctId>
+          <AcctId>ARJSB2</AcctId>
+        </AcctId>
+        <CreditDebitFlg>C</CreditDebitFlg>
+        <TrnAmt>
+          <amountValue>10</amountValue>
+          <currencyCode>INR</currencyCode>
+        </TrnAmt>
+        <TrnParticulars>CASHDROP</TrnParticulars>
+        <ValueDt>2014-02-14T00:00:00.000</ValueDt>
+      </PartTrnRec>
+
+    </XferTrnDetail>
+  </XferTrnAddRq>
+</XferTrnAddRequest>
+
+</Body>
+</FIXML>
