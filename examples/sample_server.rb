@@ -9,6 +9,7 @@ post '/FISERVLET/fihttp' do
   p "request is [ #{request.inspect} ]"
   raw = request.env["rack.input"].read
   p "XML DATA ~ [#{raw.inspect}]"
-  content_type 'text/xml'
+  # content_type 'text/xml'
   erb :xfer_trn_add_response
+  # erb :error_response
 end

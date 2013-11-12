@@ -34,7 +34,7 @@ module FinacleApi
         # Convert request params to "www-form-urlencoded"
         builder.use Faraday::Request::UrlEncoded
         # faraday adapter fror
-        builder.use FaradayMiddleware::ParseXml,  :content_type => /\bxml$/
+        builder.use FaradayMiddleware::ParseXml
         # Set Faraday's HTTP adapter
         builder.adapter Faraday.default_adapter
       end
