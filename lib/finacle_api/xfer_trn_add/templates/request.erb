@@ -52,12 +52,6 @@
           <AcctId>
             <AcctId><%= @debit_transaction.acct_id.acct_id %></AcctId>
           </AcctId>
-          <PmtInst>
-            <PmtInstDt><%= @debit_transaction.pmt_inst.pmt_inst_dt %></PmtInstDt>
-            <PmtInstAlpha><%= @debit_transaction.pmt_inst.pmt_inst_alpha %></PmtInstAlpha>
-            <PmtInstNum><%= @debit_transaction.pmt_inst.pmt_inst_num %></PmtInstNum>
-            <PmtInstType><%= @debit_transaction.pmt_inst.pmt_inst_type %></PmtInstType>
-          </PmtInst>
           <CreditDebitFlg>D</CreditDebitFlg>
           <TrnAmt>
             <amountValue><%= @debit_transaction.trn_amt.amount_value %></amountValue>
