@@ -6,13 +6,23 @@ require "finacle_api/common/security"
 require "finacle_api/common/token"
 require "finacle_api/common/password_token"
 require "finacle_api/common/fi_business_exception"
+require "finacle_api/common/fi_system_exception"
 require "finacle_api/common/error_detail"
 
 module FinacleApi
   module Common
-    def error_object(error_hash)
-      exception_hash = error_hash[:fi_business_exception]
-      FinacleApi::Common::FIBusinessException.new(exception_hash)
+    def error_object(hash)
+      error_hash = hash.delete(:error)
+      error_hash ||= {}
+      business_exp_hash = error_hash.delete(:fi_business_exception)
+      system_exp_hash = error_hash.delete(:fi_system_exception)
+      if system_exp_hash
+        FinacleApi::Common::FISystemException.new(system_exp_hash)
+      elsif business_exp_hash
+        FinacleApi::Common::FIBusinessException.new(business_exp_hash)
+      else
+        FinacleApi::Common::FIBusinessException.new
+      end
     end
   end
 end

@@ -7,7 +7,7 @@ module FinacleApi
   module BlockModify
     module API
       include FinacleApi::Utils
-
+      include FinacleApi::Common
       def mark_lien(acid, amount, branch_id, options={})
         req = FinacleApi::BlockModify::Request.new(
           :security_hash => send(:security_hash), 
@@ -34,9 +34,7 @@ module FinacleApi
       def block_modify_response_object(hash)
         p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
-          error_hash = hash.delete(:error)
-          exception_hash = error_hash[:fi_business_exception]
-          FinacleApi::Common::FIBusinessException.new(exception_hash)
+          error_object(hash)
         else
           FinacleApi::BlockModify::ResponseEntity::BlockModifyResponse.new(hash.delete(:block_modify_response))
         end

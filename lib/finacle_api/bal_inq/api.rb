@@ -7,6 +7,7 @@ module FinacleApi
   module BalInq
     module API
       include FinacleApi::Utils
+      include FinacleApi::Common
 
       def balance_inquiry(account_id, opts={})
         req = FinacleApi::BalInq::Request.new(
@@ -21,9 +22,7 @@ module FinacleApi
       def bal_inq_response_object(hash)
         p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
-          error_hash = hash.delete(:error)
-          exception_hash = error_hash[:fi_business_exception]
-          FinacleApi::Common::FIBusinessException.new(exception_hash)
+          error_object(hash)
         else
           FinacleApi::BalInq::ResponseEntity::BalInqResponse.new(hash.delete(:bal_inq_response))
         end

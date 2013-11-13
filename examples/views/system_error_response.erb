@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml BalInq.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header>
+  <ResponseHeader>
+    <RequestMessageKey>
+      <RequestUUID>SR_94040027704</RequestUUID>
+      <ServiceRequestId>BalInq</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+    </RequestMessageKey>
+    <ResponseMessageInfo>
+      <BankId>01</BankId>
+      <TimeZone></TimeZone>
+      <MessageDateTime>2013-10-31T05:47:21.732</MessageDateTime>
+    </ResponseMessageInfo>
+    <UBUSTransaction>
+      <Id>null</Id>
+      <Status>FAILED</Status>
+    </UBUSTransaction>
+    <HostTransaction>
+      <Id>0000</Id>
+      <Status>FAILURE</Status>
+    </HostTransaction>
+    <HostParentTransaction>
+      <Id>null</Id>
+      <Status>null</Status>
+    </HostParentTransaction>
+    <CustomInfo/>
+  </ResponseHeader>
+</Header>
+
+<Body>
+  <Error>
+    <FISystemException>
+      <ErrorDetail>
+        <ErrorCode>SYS</ErrorCode>
+        <ErrorDesc>Oops! Something went wrong.</ErrorDesc>
+        <ErrorSource>M999M</ErrorSource>
+        <ErrorType>SOS</ErrorType>
+      </ErrorDetail>
+    </FISystemException>
+  </Error>
+</Body>
+
+</FIXML>
+

@@ -76,7 +76,7 @@ module FinacleApi
             :amount_value => amount,
             :currency_code => currency_code
           },
-          :value_dt => "#{Time.now.strftime('%Y-%m-%dT00:00:00.000')}",
+          :value_dt => value_dt || "#{Time.now.strftime('%Y-%m-%dT00:00:00.000')}",
           :trn_particulars => 'CASHPICKUP'
         }
 
@@ -94,9 +94,7 @@ module FinacleApi
       def xfer_trn_response_object(hash)
         p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
-          error_hash = hash.delete(:error)
-          exception_hash = error_hash[:fi_business_exception]
-          FinacleApi::Common::FIBusinessException.new(exception_hash)
+          error_object(hash)
         else
           FinacleApi::XferTrnAdd::ResponseEntity::XferTrnAddResponse.new(hash.delete(:xfer_trn_add_response))
         end
