@@ -24,7 +24,7 @@ module FinacleApi
         )
 
         @message_key = FinacleApi::Common::MessageKey.new(
-          :request_uuid => "SR_#{rand(100000000000)}", 
+          :request_uuid => "Req_#{rand(100000000000)}", 
           :service_request_id => "XferTrnAdd", 
           :service_request_version => "10.2", 
           :channel_id => "COR", 
