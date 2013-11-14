@@ -24,8 +24,16 @@ module FinacleApi
           :value_dt => value_dt || "#{Time.now.strftime('%Y-%m-%dT00:00:00.000')}",
           :trn_particulars => 'CASHDROP'
         }
-
+        
         debit_txn.merge!(:pmt_inst => pmt_inst) if pmt_inst
+        # else
+        #   debit_txn.merge!(:pmt_inst => {
+        #     :pmt_inst_dt => "#{Time.now.strftime('%Y-%m-%dT00:00:00.000')}", 
+        #     :pmt_inst_alpha => "", 
+        #     :pmt_inst_num => "0000", 
+        #     :pmt_inst_type => "CHQ"
+        #   })
+        # end
 
         credit_txn = {
           :acct_id => {
