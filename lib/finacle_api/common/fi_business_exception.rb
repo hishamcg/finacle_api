@@ -17,6 +17,10 @@ module FinacleApi
           @error_detail = ErrorDetail.new(error_detail_hash)
         end
       end
+
+      def is_error?
+        true
+      end
     end
   end
 end

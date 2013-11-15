@@ -13,4 +13,8 @@ class SerializableObject
   def attributes
     {}
   end
+
+  def is_error?
+    false
+  end
 end
