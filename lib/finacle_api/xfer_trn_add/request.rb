@@ -63,7 +63,8 @@ module FinacleApi
       private 
 
       def template
-        File.read("#{Dir.pwd}/lib/finacle_api/xfer_trn_add/templates/request.erb")
+        p "file directory is #{File.dirname(__FILE__)}"
+        File.read("#{File.dirname(__FILE__)}/templates/request.erb")
       end
 
       def render()

@@ -64,7 +64,7 @@ module FinacleApi
       private 
 
       def template
-        File.read("#{Dir.pwd}/lib/finacle_api/bal_inq/templates/request.erb")
+        File.read("#{File.dirname(__FILE__)}/templates/request.erb")
       end
 
       def render
