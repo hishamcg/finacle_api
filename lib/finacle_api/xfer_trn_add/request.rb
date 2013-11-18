@@ -63,7 +63,6 @@ module FinacleApi
       private 
 
       def template
-        p "file directory is #{File.dirname(__FILE__)}"
         File.read("#{File.dirname(__FILE__)}/templates/request.erb")
       end
 
