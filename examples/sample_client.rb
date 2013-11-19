@@ -10,7 +10,16 @@ c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoi
 # p "BlockModify: RESPONSE OBJECT ~> [#{r2.inspect}]"
 # p "BlockModify: Stan is #{r2.block_modify_output_vo.stan}"
 
-r3 = c.cash_drop('1008810030000203','1008810030000286', 10, {:currency_code => 'INR', :value_dt => "2013-04-11T00:00:00.000"})
+r3 = c.cash_drop('1008810030000203','1008810030000286', 10, 
+   {:value_dt => "2012-12-12T00:00:00.000", 
+    :pmt_inst => {
+      :pmt_inst_dt => "2013-12-11T00:00:00.000", 
+      :pmt_inst_alpha => '#$', 
+      :pmt_inst_num => '123456'
+    }
+  }
+)
+
 p "XferTrnAdd CASHDROP: RESPONSE OBJECT ~> [#{r3.inspect}]"
 p "XferTrnAdd CASHDROP: Transaction Date is #{r3.xfer_trn_add_rs.trn_identifier.trn_dt}"
 

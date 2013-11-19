@@ -14,7 +14,7 @@ module FinacleApi
             @error_detail.push(ErrorDetail.new(ed))
           end
         else
-          @error_detail = ErrorDetail.new(error_detail_hash)
+          @error_detail = [ErrorDetail.new(error_detail_hash)]
         end
       end
 
