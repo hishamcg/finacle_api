@@ -1,5 +1,6 @@
 require 'finacle_api/utils'
 require 'finacle_api/common'
+require "finacle_api/exception"
 require 'finacle_api/xfer_trn_add/request'
 require 'finacle_api/xfer_trn_add/response/xfer_trn_add_response'
 
@@ -53,7 +54,21 @@ module FinacleApi
           :debit_transaction => debit_txn
         )
         p "drop XML PAYLOAD ~ [#{req.xml_payload}]"
-        response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
+        begin
+          response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
+        rescue FinacleApi::Exception::ClientException => ce
+          response_body = {
+            :error => {
+              :fi_system_exception => {
+                :error_detail => {
+                  :error_code => ce.class,
+                  :error_desc => ce.message,
+                  :error_type => 'FinacleApiRubyClient'
+                }
+              }
+            }
+          }
+        end
         body_hash = convert_hash_keys(response_body)
         xfer_trn_response_object(body_hash)
       end
@@ -94,7 +109,21 @@ module FinacleApi
           :debit_transaction => debit_txn
         )
         p "pickup XML PAYLOAD ~ [#{req.xml_payload}]"
-        response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
+        begin
+          response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
+        rescue FinacleApi::Exception::ClientException => ce
+          response_body = {
+            :error => {
+              :fi_system_exception => {
+                :error_detail => {
+                  :error_code => ce.class,
+                  :error_desc => ce.message,
+                  :error_type => 'FinacleApiRubyClient'
+                }
+              }
+            }
+          }
+        end
         body_hash = convert_hash_keys(response_body)
         xfer_trn_response_object(body_hash)
       end
