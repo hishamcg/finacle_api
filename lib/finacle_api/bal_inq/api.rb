@@ -20,7 +20,6 @@ module FinacleApi
       end
 
       def bal_inq_response_object(hash)
-        p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
           error_object(hash)
         else

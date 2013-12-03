@@ -28,31 +28,31 @@ end
 
 
 def a_delete(path)
-  a_request(:delete, 'http://example.com' + path)
+  a_request(:delete, 'http://localhost:4000' + path)
 end
 
 def a_get(path)
-  a_request(:get, 'http://example.com' + path)
+  a_request(:get, 'http://localhost:4000' + path)
 end
 
 def a_post(path)
-  a_request(:post, 'http://example.com' + path)
+  a_request(:post, 'http://localhost:4000' + path)
 end
 
 def stub_delete(path)
-  stub_request(:delete, 'http://example.com' + path)
+  stub_request(:delete, 'http://localhost:4000' + path)
 end
 
 def stub_get(path)
-  stub_request(:get, 'http://example.com' + path)
+  stub_request(:get, 'http://localhost:4000' + path)
 end
 
 def stub_post(path)
-  stub_request(:post, 'http://example.com' + path)
+  stub_request(:post, 'http://localhost:4000' + path)
 end
 
 def stub_put(path)
-  stub_request(:put, 'http://example.com' + path)
+  stub_request(:put, 'http://localhost:4000' + path)
 end
 
 def fixture_path
