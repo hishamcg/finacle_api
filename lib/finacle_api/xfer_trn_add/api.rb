@@ -53,7 +53,7 @@ module FinacleApi
           :credit_transaction => credit_txn,
           :debit_transaction => debit_txn
         )
-        p "drop XML PAYLOAD ~ [#{req.xml_payload}]"
+        # p "drop XML PAYLOAD ~ [#{req.xml_payload}]"
         begin
           response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         rescue FinacleApi::Exception::ClientException => ce
@@ -108,7 +108,7 @@ module FinacleApi
           :credit_transaction => credit_txn,
           :debit_transaction => debit_txn
         )
-        p "pickup XML PAYLOAD ~ [#{req.xml_payload}]"
+        # p "pickup XML PAYLOAD ~ [#{req.xml_payload}]"
         begin
           response_body = response_from(:post, FinacleApi::XferTrnAdd::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         rescue FinacleApi::Exception::ClientException => ce
@@ -129,7 +129,7 @@ module FinacleApi
       end
 
       def xfer_trn_response_object(hash)
-        p "response body hash ~> [#{hash.inspect}]"
+        # p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
           error_object(hash)
         else

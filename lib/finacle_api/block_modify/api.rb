@@ -32,7 +32,7 @@ module FinacleApi
       end
 
       def block_modify_response_object(hash)
-        p "response body hash ~> [#{hash.inspect}]"
+        # p "response body hash ~> [#{hash.inspect}]"
         if hash.has_key?(:error)
           error_object(hash)
         else
