@@ -54,7 +54,7 @@ module FinacleApi
         end
         body_hash = convert_hash_keys(response_body)
         p "body hash #{body_hash}"
-        # de_duplication_inq_response_object(body_hash)
+        de_duplication_inq_response_object(body_hash)
       end
 
 

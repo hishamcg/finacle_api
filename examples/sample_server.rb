@@ -10,7 +10,8 @@ post '/FISERVLET/fihttp' do
   raw = request.env["rack.input"].read
   p "XML DATA ~ [#{raw.inspect}]"
   # content_type 'text/xml'
-  erb :xfer_trn_add_response
+  # erb :xfer_trn_add_response
   # erb :error_response
   # erb :system_error_response
+  erb :de_duplication_inq_response
 end
