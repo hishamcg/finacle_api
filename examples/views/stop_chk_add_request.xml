@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml StopChkAdd.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <Header>
+    <RequestHeader>
+      <MessageKey>
+        <RequestUUID>Req_1380458872899</RequestUUID>
+        <ServiceRequestId>StopChkAdd</ServiceRequestId>
+        <ServiceRequestVersion>10.2</ServiceRequestVersion>
+        <ChannelId>COR</ChannelId>
+        <LanguageId></LanguageId>
+      </MessageKey>
+
+      <RequestMessageInfo>
+        <BankId></BankId>
+        <TimeZone></TimeZone>
+        <EntityId></EntityId>
+        <EntityType></EntityType>
+        <ArmCorrelationId></ArmCorrelationId>
+        <MessageDateTime>2013-08-29T18:17:52.899</MessageDateTime>
+      </RequestMessageInfo>
+
+      <Security>
+        <Token>
+          <PasswordToken>
+            <UserId></UserId>
+            <Password></Password>
+          </PasswordToken>
+        </Token>
+        <FICertToken></FICertToken>
+        <RealUserLoginSessionId></RealUserLoginSessionId>
+        <RealUser></RealUser>
+        <RealUserPwd></RealUserPwd>
+        <SSOTransferToken></SSOTransferToken>
+      </Security>
+
+    </RequestHeader>
+  </Header>
+
+  <Body>
+    <StopChkAddRequest>
+      <StopChkAddRq>
+        <StopChkInfo>
+          <ChkNum>2274</ChkNum>
+          <Reason>016</Reason>
+          <NoOfLeaves>2</NoOfLeaves>
+          <AdviceDt>2013-09-29T00:00:00.000</AdviceDt>
+        </StopChkInfo>
+        <AcctId>
+          <AcctId>1008810010000147</AcctId>
+        </AcctId>
+      </StopChkAddRq>
+    </StopChkAddRequest>
+  </Body>
+</FIXML>

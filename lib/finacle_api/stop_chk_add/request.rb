@@ -1,10 +1,9 @@
 require 'erb'
 require 'finacle_api/common'
-require 'finacle_api/bal_inq/request/bal_inq_request'
-
+require 'finacle_api/stop_chk_add_request'
 
 module FinacleApi
-  module BalInq
+  module StopChkAdd
     class Request
 
       API_PATH = '/FISERVLET/fihttp'
@@ -13,7 +12,8 @@ module FinacleApi
       def initialize(options={})
 
         security_hash = options.delete(:security_hash)
-        @account_id = options.delete(:account_id)
+        @acct_id = options.delete(:acct_id)
+        stop_chk_info = options.delete(:stop_chk_info)
 
         @request_message_info = FinacleApi::Common::RequestMessageInfo.new(
           :bank_id => "",
@@ -26,7 +26,7 @@ module FinacleApi
 
         @message_key = FinacleApi::Common::MessageKey.new(
           :request_uuid => "SR_#{rand(100000000000)}",
-          :service_request_id => "BalInq",
+          :service_request_id => "StopChkAdd",
           :service_request_version => "10.2",
           :channel_id => "COR",
           :language_id => ""
@@ -48,13 +48,12 @@ module FinacleApi
           :request_message_info => @request_message_info
         )
 
-        @bal_inq_request = FinacleApi::BalInq::RequestEntity::BalInqRequest.new(@account_id)
+        stop_chk_add_request = FinacleApi::BalInq::RequestEntity::StopChkAddRq.new(@acct_id,stop_chk_info)
 
         @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header},
-          :body => {:bal_inq_request => @bal_inq_request}
+          :body => {:stop_chk_Add_request => stop_chk_add_request}
         )
-
       end
 
       def xml_payload
@@ -67,11 +66,8 @@ module FinacleApi
         File.read("#{File.dirname(__FILE__)}/templates/request.erb")
       end
 
-      def render
+      def render()
         ERB.new(template).result(binding)
       end
-
-    end #class end
-
   end
 end

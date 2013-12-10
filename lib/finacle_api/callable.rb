@@ -9,6 +9,6 @@ module FinacleApi
     include FinacleApi::BalInq::API
     include FinacleApi::BlockModify::API
     include FinacleApi::XferTrnAdd::API
-
+    include FinacleApi::StopChkAdd::API
   end
 end
