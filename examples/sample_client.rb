@@ -37,8 +37,7 @@ c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoi
 # p "XferTrnAdd CASH PICKUP: Transaction Date is #{r4.xfer_trn_add_rs.trn_identifier.trn_dt}"
 
 r5 = c.customer_search(
-  :first_name => 'Farida',
-  :last_name => 'KAZI'
+  :first_name => 'Shaikh'
 )
 
 p "DeDuplicationInq RESPONSE OBJECT ~> [#{r5.inspect}]"
