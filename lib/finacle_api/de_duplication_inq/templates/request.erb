@@ -45,11 +45,21 @@
         <MaxRec><%= @rec_ctrl_in.max_rec %></MaxRec>
         <SetNum><%= @rec_ctrl_in.set_num %></SetNum>
       </RecCtrlIn>
+      <% if !@de_duplication_inq_rq.first_name.to_s.empty? %>
       <FirstName><%= @de_duplication_inq_rq.first_name %></FirstName>
+      <% end %>
+      <% if !@de_duplication_inq_rq.middle_name.to_s.empty? %>
       <MiddleName><%= @de_duplication_inq_rq.middle_name %></MiddleName>
+      <% end %>
+      <% if !@de_duplication_inq_rq.last_name.to_s.empty? %>
       <LastName><%= @de_duplication_inq_rq.last_name %></LastName>
+      <% end %>
+      <% if !@de_duplication_inq_rq.is_across_entity.to_s.empty? %>
       <IsAcrossEntity><%= @de_duplication_inq_rq.is_across_entity %></IsAcrossEntity>
+      <% end %>
+      <% if !@de_duplication_inq_rq.birth_dt.to_s.empty? %>
       <BirthDt><%= @de_duplication_inq_rq.birth_dt %></BirthDt>
+      <% end %>
 
     </DeDuplicationInqRq>
   </DeDuplicationInqRequest>

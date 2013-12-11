@@ -21,12 +21,12 @@ module FinacleApi
 
         rec_ctrl_in = {
           :max_rec => per_page || 10,
-          :set_num => page_num || 0
+          :set_num => page_num || 1
         }
         de_duplication_inq_rq = {
-          :first_name => "#{first_name}",
-          :last_name => "#{last_name}",
-          :middle_name => "#{middle_name}",
+          :first_name => "#{first_name}".upcase,
+          :last_name => "#{last_name}".upcase,
+          :middle_name => "#{middle_name}".upcase,
           :is_across_entity => is_across_entity || 'N',
           :birth_dt => "#{birth_dt}"
         }

@@ -38,7 +38,7 @@ c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoi
 
 r5 = c.customer_search(
   :first_name => 'Farida',
-  :last_name => 'S'
+  :last_name => 'KAZI'
 )
 
 p "DeDuplicationInq RESPONSE OBJECT ~> [#{r5.inspect}]"
