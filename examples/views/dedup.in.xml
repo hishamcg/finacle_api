@@ -36,8 +36,13 @@
 <DeDuplicationInqRq>
 <RecCtrlIn>
 <MaxRec>10</MaxRec>
+<SetNum>0</SetNum>
 </RecCtrlIn>
-<FirstName>FARIDA</FirstName>
+<FirstName>Farida</FirstName>
+<MiddleName></MiddleName>
+<LastName>S</LastName>
+<IsAcrossEntity>N</IsAcrossEntity>
+<BirthDt></BirthDt>
 </DeDuplicationInqRq>
 </DeDuplicationInqRequest>
 </Body>
