@@ -12,8 +12,12 @@ module FinacleApi
           options ||= {}
           @rec_ctrl_out = RecCtrlOut.new(options.delete(:rec_ctrl_out))
           search_dedup_dtls = options.delete(:search_dedup_dtls)
-          if search_dedup_dtls and search_dedup_dtls.is_a?(Array)
-            @search_dedup_dtls = search_dedup_dtls.map { |result| SearchDedupDtls.new(result) }
+          if search_dedup_dtls 
+            if search_dedup_dtls.is_a?(Array)
+              @search_dedup_dtls = search_dedup_dtls.map { |result| SearchDedupDtls.new(result) }
+            else
+              @search_dedup_dtls = [SearchDedupDtls.new(search_dedup_dtls)]
+            end
           end
           options.each do |key, value|
             send(:"#{key}=", value) if respond_to?(:"#{key}=")
