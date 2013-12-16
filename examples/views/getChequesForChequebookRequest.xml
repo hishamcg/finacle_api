@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FIXML xsi:schemaLocation="http://www.finacle.com/fixml getChequesForChequebook.xsd" xmlns="http://www.finacle.com/fixml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Header>
+  <RequestHeader>
+    <MessageKey>
+      <RequestUUID>Req_1381162024430</RequestUUID>
+      <ServiceRequestId>getChequesForChequebook</ServiceRequestId>
+      <ServiceRequestVersion>10.2</ServiceRequestVersion>
+      <ChannelId>COR</ChannelId>
+      <LanguageId></LanguageId>
+    </MessageKey>
+    <RequestMessageInfo>
+      <BankId></BankId>
+      <TimeZone></TimeZone>
+      <EntityId></EntityId>
+      <EntityType></EntityType>
+      <ArmCorrelationId></ArmCorrelationId>
+      <MessageDateTime>2013-09-07T21:37:04.430</MessageDateTime>
+    </RequestMessageInfo>
+    <Security>
+      <Token>
+        <PasswordToken>
+          <UserId></UserId>
+          <Password></Password>
+        </PasswordToken>
+      </Token>
+      <FICertToken></FICertToken>
+      <RealUserLoginSessionId></RealUserLoginSessionId>
+      <RealUser></RealUser>
+      <RealUserPwd></RealUserPwd>
+      <SSOTransferToken></SSOTransferToken>
+    </Security>
+  </RequestHeader>
+</Header>
+
+<Body>
+  <getChequesForChequebookRequest>
+    <ChequeInquiryCriteria>
+      <acid>1001010030004242</acid>
+      <beginChequeNumber>22791</beginChequeNumber>
+      <branchId>0001</branchId>
+      <endChequeNumber>22796</endChequeNumber>
+    </ChequeInquiryCriteria>
+  </getChequesForChequebookRequest>
+</Body>
+
+</FIXML>

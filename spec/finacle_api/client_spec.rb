@@ -22,7 +22,7 @@ describe FinacleApi::Client do
   context 'HTTP Requests' do
     before do
       stub_request(:any, "http://localhost:4000/endpoint_url").
-        with(:headers => {'Accept'=>'*/*', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Finacle Ruby Gem 0.2.4'}).
+        with(:headers => {'Accept'=>'*/*', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>"Finacle Ruby Gem #{FinacleApi::VERSION}"}).
         to_return(:status => 200, :body => "", :headers => {})
     end
 
