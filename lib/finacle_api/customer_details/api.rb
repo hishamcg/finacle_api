@@ -9,8 +9,9 @@ module FinacleApi
       include FinacleApi::Utils
       include FinacleApi::Common
       def customer_details(cust_id, options={})
-        req = FinacleApi::CustomerDetails::Request.new
-        response_body = response_from(:get, FinacleApi::CustomerDetails::Request::API_PATH)["FIXML"]["Body"]
+        cust_type = options.delete(:cust_type) || 'Retail'
+        req = FinacleApi::CustomerDetails::Request.new(:cust_id => "#{cust_id}", :cust_type => cust_type)
+        response_body = response_from(:get, FinacleApi::CustomerDetails::Request::API_PATH, req.params)["FIXML"]["Body"]
         body_hash = convert_hash_keys(response_body)
         customer_details_response_object(body_hash)
       end
