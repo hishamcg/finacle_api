@@ -2,7 +2,7 @@ require 'sinatra'
 
 get '/FISERVLET/fihttp' do
   content_type 'text/xml'
-  erb :bal_inq_response
+  erb :customer_details_response
 end
 
 post '/FISERVLET/fihttp' do
@@ -13,5 +13,6 @@ post '/FISERVLET/fihttp' do
   # erb :xfer_trn_add_response
   # erb :error_response
   # erb :system_error_response
-  erb :de_duplication_inq_response
+  # erb :de_duplication_inq_response
+  erb :customer_details_response
 end
