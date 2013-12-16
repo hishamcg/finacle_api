@@ -36,7 +36,7 @@ module FinacleApi
           :de_duplication_inq_rq => de_duplication_inq_rq
         )
 
-        p "XML PAYLOAD ~ [#{req.xml_payload}]"
+        # p "XML PAYLOAD ~ [#{req.xml_payload}]"
         begin
           response_body = response_from(:post, FinacleApi::DeDuplicationInq::Request::API_PATH, req.xml_payload)["FIXML"]["Body"]
         rescue FinacleApi::Exception::ClientException => ce
@@ -53,7 +53,7 @@ module FinacleApi
           }
         end
         body_hash = convert_hash_keys(response_body)
-        p "body hash #{body_hash}"
+        # p "body hash #{body_hash}"
         de_duplication_inq_response_object(body_hash)
       end
 
