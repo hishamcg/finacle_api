@@ -5,6 +5,7 @@ require 'finacle_api/callable'
 require "finacle_api/exception"
 
 
+
 module FinacleApi
   class Client
     include FinacleApi::Callable

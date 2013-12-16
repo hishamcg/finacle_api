@@ -13,9 +13,9 @@ module FinacleApi
         req = FinacleApi::StopChkAdd::Request.new(
           :security_hash => send(:security_hash),
           :stop_chk_info => {
-            :chk_num => chk_num
-            :reason => reason
-            :no_of_leaves => no_of_leaves
+            :chk_num => chk_num,
+            :reason => reason,
+            :no_of_leaves => no_of_leaves,
             :advice_dt => advice_dt
           },
           :acct_id =>{

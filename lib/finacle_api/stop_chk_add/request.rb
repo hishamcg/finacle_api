@@ -1,6 +1,7 @@
 require 'erb'
 require 'finacle_api/common'
-require 'finacle_api/stop_chk_add_request'
+require 'finacle_api/stop_chk_add/request/stop_chk_info'
+require 'finacle_api/stop_chk_add/request/stop_chk_add_rq'
 
 module FinacleApi
   module StopChkAdd
@@ -48,7 +49,10 @@ module FinacleApi
           :request_message_info => @request_message_info
         )
 
-        stop_chk_add_request = FinacleApi::BalInq::RequestEntity::StopChkAddRq.new(@acct_id,stop_chk_info)
+        stop_chk_add_request = FinacleApi::StopChkAdd::RequestEntity::StopChkAddRq.new(
+          :acct_id => @acct_id,
+          :stop_chk_info => stop_chk_info
+          )
 
         @fixml = FinacleApi::Common::FIXML.new(
           :header => {:request_header => request_header},
@@ -69,5 +73,6 @@ module FinacleApi
       def render()
         ERB.new(template).result(binding)
       end
+    end
   end
 end

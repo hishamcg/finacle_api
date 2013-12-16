@@ -1,6 +1,8 @@
 require 'finacle_api/bal_inq/api'
 require 'finacle_api/block_modify/api'
 require 'finacle_api/xfer_trn_add/api'
+require 'finacle_api/stop_chk_add/api'
+
 
 # add your api call functions here
 
