@@ -1,6 +1,7 @@
 require 'finacle_api'
 
-c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoint => 'http://localhost:4567')
+#c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoint => 'http://localhost:4567')
+c = FinacleApi::ServicesClient.new(:user_id => '01212', :password => 'passpass', :endpoint => 'http://localhost:4567')
 
 # r1 = c.balance_inquiry('1007710010000223')
 # p "BalInq: RESPONSE OBJECT ~> [#{r1.inspect}]"
@@ -57,12 +58,14 @@ c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoi
 # p "XferTrnAdd CASH PICKUP: RESPONSE OBJECT ~> [#{r4.inspect}]"
 # p "XferTrnAdd CASH PICKUP: Transaction Date is #{r4.xfer_trn_add_rs.trn_identifier.trn_dt}"
 
-r4 = c.stop_payment('1008810030000203','030', 'smsm', '3', '2013-04-11T00:00:00.000')
+#r4 = c.stop_payment('1008810030000203','030', 'smsm', '3', '2013-04-11T00:00:00.000')
 
 
-r5 = c.customer_search(
-  :first_name => 'Shaikh'
-)
+#r5 = c.customer_search(
+#  :first_name => 'Shaikh'
+#)
+#
+#p "DeDuplicationInq RESPONSE OBJECT ~> [#{r5.inspect}]"
 
-p "DeDuplicationInq RESPONSE OBJECT ~> [#{r5.inspect}]"
-
+r6 = c.customer_details('8123994377847718')
+p "Customer Details Result [#{r6.inspect}]"

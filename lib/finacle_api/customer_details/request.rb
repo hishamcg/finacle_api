@@ -5,7 +5,7 @@ module FinacleApi
   module CustomerDetails
     class Request
 
-      API_PATH = '/FISERVLET/fihttp'
+      API_PATH = '/api/services/customers'
       DEFAULT_CUST_TYPE = 'Retail'
       attr_accessor :cust_id, :cust_type
       def initialize(options={})
@@ -16,7 +16,7 @@ module FinacleApi
       end
 
       def params
-        {:cust_type => cust_type||DEFAULT_CUST_TYPE, :cust_id => cust_id}
+        {:custType => cust_type||DEFAULT_CUST_TYPE, :custId => cust_id}
       end
     end #class end
 

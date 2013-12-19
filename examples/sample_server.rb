@@ -2,6 +2,11 @@ require 'sinatra'
 
 get '/FISERVLET/fihttp' do
   content_type 'text/xml'
+  erb :error_response
+end
+
+get '/api/services/customers' do
+  content_type 'text/xml'
   erb :customer_details_response
 end
 

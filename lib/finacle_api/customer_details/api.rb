@@ -12,6 +12,7 @@ module FinacleApi
         cust_type = options.delete(:cust_type) || 'Retail'
         req = FinacleApi::CustomerDetails::Request.new(:cust_id => "#{cust_id}", :cust_type => cust_type)
         response_body = response_from(:get, FinacleApi::CustomerDetails::Request::API_PATH, req.params)["FIXML"]["Body"]
+        p "response body ~~~> #{response_body.inspect}"
         body_hash = convert_hash_keys(response_body)
         customer_details_response_object(body_hash)
       end
