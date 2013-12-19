@@ -15,7 +15,7 @@ module FinacleApi
           :stop_chk_info => {
             :chk_num => chk_num,
             :reason => reason,
-            :no_of_leaves => no_of_leaves,
+            :no_of_leaves => no_of_leaves.to_s,
             :advice_dt => advice_dt
           },
           :acct_id =>{

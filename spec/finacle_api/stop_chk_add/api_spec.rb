@@ -11,7 +11,12 @@ describe FinacleApi::StopChkAdd::API do
 
     before do
       stub_request(:post, "http://localhost:4000/FISERVLET/fihttp").to_return(:body => fixture("stop_chk_add_response.xml"))
-      @response = @client.stop_payment('1007710010000223',"345561111","5", "2013-09-29T00:00:00.000")
+      @response = @client.stop_payment(
+        '1007710010000223',
+        '5020310', 
+        'Unknown Reason',
+        5, 
+        "2013-09-29T00:00:00.000")
     end
 
     it 'calls the correct url for balance enquiry' do
