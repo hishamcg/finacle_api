@@ -11,7 +11,21 @@ module FinacleApi
       def customer_details(cust_id, options={})
         cust_type = options.delete(:cust_type) || 'Retail'
         req = FinacleApi::CustomerDetails::Request.new(:cust_id => "#{cust_id}", :cust_type => cust_type)
-        response_body = response_from(:get, FinacleApi::CustomerDetails::Request::API_PATH, req.params)["FIXML"]["Body"]
+        begin
+          response_body = response_from(:get, FinacleApi::CustomerDetails::Request::API_PATH, req.params)["FIXML"]["Body"]
+        rescue FinacleApi::Exception::ClientException => ce
+          response_body = {
+            :error => {
+              :fi_system_exception => {
+                :error_detail => {
+                  :error_code => ce.class,
+                  :error_desc => ce.message,
+                  :error_type => 'FinacleApiRubyClient'
+                }
+              }
+            }
+          }
+        end
         p "response body ~~~> #{response_body.inspect}"
         body_hash = convert_hash_keys(response_body)
         customer_details_response_object(body_hash)

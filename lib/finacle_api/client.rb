@@ -3,6 +3,7 @@ require 'faraday_middleware'
 require "finacle_api/common"
 require 'finacle_api/callable'
 require "finacle_api/exception"
+require 'finacle_api/common/raise_authorization_error'
 
 
 
@@ -34,8 +35,12 @@ module FinacleApi
         builder.use Faraday::Request::Multipart
         # Convert request params to "www-form-urlencoded"
         builder.use Faraday::Request::UrlEncoded
-        # faraday adapter fror
+        # faraday adapter xml parsing
         builder.use FaradayMiddleware::ParseXml
+        #response logger
+        builder.use Faraday::Response::Logger
+        #raise 401 authorization errors
+        builder.use Faraday::Response::RaiseAuthorizationError
         # Set Faraday's HTTP adapter
         builder.adapter Faraday.default_adapter
       end
@@ -73,8 +78,8 @@ module FinacleApi
         request.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       end
       response.env
-    rescue Faraday::Error::ClientError => ce
-      raise FinacleApi::Exception::ClientException.new(ce.message)
+    rescue => e
+      raise FinacleApi::Exception::ClientException.new("Error in Request - #{e.class}")
     end
 
   end
