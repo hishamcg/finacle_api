@@ -1,7 +1,7 @@
 require 'finacle_api'
 
 #c = FinacleApi::Client.new(:user_id => '01212', :password => 'passpass', :endpoint => 'http://localhost:4567')
-c = FinacleApi::ServicesClient.new(:user_id => '01212', :password => 'passpass', :endpoint => 'http://localhost:4567')
+c = FinacleApi::ServicesClient.new(:user_id => 'c0117', :password => 'nov@2013', :endpoint => 'http://localhost:8080')
 
 # r1 = c.balance_inquiry('1007710010000223')
 # p "BalInq: RESPONSE OBJECT ~> [#{r1.inspect}]"
